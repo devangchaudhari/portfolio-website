@@ -1,0 +1,34 @@
+{
+  "name": "devang-chaudhari-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Devang Chaudhari — Software Engineer Portfolio Monorepo",
+  "scripts": {
+    "dev": "npm --prefix client run dev",
+    "dev:client": "npm --prefix client run dev",
+    "dev:server": "npm --prefix server run dev",
+    "build:client": "npm --prefix client run build",
+    "build:server": "npm --prefix server run build",
+    "build": "npm run build:client && npm run build:server",
+    "test:client": "npm --prefix client test",
+    "test:server": "npm --prefix server test",
+    "test": "npm run test:client && npm run test:server",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "prisma:generate": "npm --prefix server run prisma:generate",
+    "prisma:migrate": "npm --prefix server run prisma:migrate",
+    "prisma:seed": "npm --prefix server run prisma:seed"
+  },
+  "keywords": [
+    "portfolio",
+    "software-engineer",
+    "react",
+    "vite",
+    "express",
+    "typescript",
+    "snowflake",
+    "data-engineering"
+  ],
+  "author": "Devang Chaudhari",
+  "license": "MIT"
+}

@@ -1,0 +1,63 @@
+// Prisma Schema for Devang Chaudhari Portfolio
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model ContactMessage {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  subject   String
+  message   String
+  status    String   @default("UNREAD") // UNREAD, READ, REPLIED, ARCHIVED
+  ipAddress String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+  @@index([createdAt])
+}
+
+model Project {
+  id               String   @id @default(uuid())
+  slug             String   @unique
+  title            String
+  shortDescription String
+  problem          String
+  solution         String
+  contribution     String
+  category         String
+  techStack        String[]
+  highlights       String[]
+  results          String[]
+  githubUrl        String?
+  liveUrl          String?
+  demoType         String?
+  featured         Boolean  @default(false)
+  displayOrder     Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Experience {
+  id           String   @id @default(uuid())
+  company      String
+  companyUrl   String?
+  role         String
+  type         String   // full-time, internship
+  startDate    String
+  endDate      String
+  location     String
+  summary      String
+  highlights   String[]
+  tech         String[]
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
